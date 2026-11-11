@@ -1,9 +1,9 @@
 # Tiny Chess 01 — 4 KB alpha-beta engine
 
-`main.py` (4,046 bytes) is a complete chess engine for the make.fun
+`main.py` (4,083 bytes) is a complete chess engine for the make.fun
 tiny-chess-01 competition: 0x88 board, alpha-beta with iterative
-deepening to a fixed 100,000-node cap per move, transposition table,
-killer moves + history heuristic, MVV-LVA capture ordering,
+deepening to a fixed 80,000-node cap per move, null-move pruning,
+transposition table, killer moves, MVV-LVA capture ordering,
 quiescence over captures/promotions and replies to check, and
 repetition detection against both the search path and the game history.
 
@@ -23,8 +23,9 @@ the live trial byte-for-byte.
 
 - Perft: all 6 standard positions correct to depth 4
   (start d4 197,281; kiwipete d3 97,862).
-- Practice trial-0 (local env server, 2026-11-11): Elo 1290,
-  6 wins / 1 draw / 9 losses, 15 games by checkmate, 1 adjudicated;
-  wall 2,822 s of the 3,600 s budget; ~3.1 s/move average.
-  Beat depth-2 (2/2), depth-3 (1.5/2), depth-4 (1/2), nodes-100k
-  (1/2) and nodes-250k (1/2); lost to nodes-500k and above (0/6).
+- Practice trials (local env server, 2026-11-11, W=80,000, NMP):
+  trial-0 Elo 1362 (7W/1D/8L), trial-1 Elo 1253 (5W/2D/9L),
+  trial-2 Elo 1131 (4W/1D/11L); mean 1249.
+  Max 2,833 ms/move (limit 10,000 ms), mean ~1.7 s/move.
+- Determinism: trial-0 run twice — 16/16 games identical
+  (moves and outcome), both Elo 1362.
