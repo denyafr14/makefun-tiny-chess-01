@@ -23,4 +23,8 @@ the live trial byte-for-byte.
 
 - Perft: all 6 standard positions correct to depth 4
   (start d4 197,281; kiwipete d3 97,862).
-- Practice trial-0 (local env server): see the submission report.
+- Practice trial-0 (local env server, 2026-11-11): Elo 1290,
+  6 wins / 1 draw / 9 losses, 15 games by checkmate, 1 adjudicated;
+  wall 2,822 s of the 3,600 s budget; ~3.1 s/move average.
+  Beat depth-2 (2/2), depth-3 (1.5/2), depth-4 (1/2), nodes-100k
+  (1/2) and nodes-250k (1/2); lost to nodes-500k and above (0/6).
